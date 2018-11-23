@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemPedido.cs" />
+    <Compile Include="dominio\ItemPedido.cs" />
+    <Compile Include="dominio\ModelException.cs" />
+    <Compile Include="dominio\Pedido.cs" />
     <Compile Include="dominio\Produto.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

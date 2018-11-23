@@ -11,7 +11,7 @@ namespace curso
     {
         //lista estatica de produtos fica disponivel para todo o programa
         public static List<Produto> produtos = new List<Produto>();
-
+        public static List<Pedido> pedidos = new List<Pedido>();
 
         static void Main(string[] args)
         {
@@ -47,15 +47,45 @@ namespace curso
                 }
                 else if (opcao == 2)
                 {
-
+                    try
+                    {
+                        Tela.CadastrarProduto();
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine("Erro inesperado: " + e.Message);
+                    }
+                    
                 }
                 else if (opcao == 3)
                 {
-
+                    try
+                    {
+                        Tela.CadastrarPedido();
+                    }
+                    catch(ModelException e)
+                    {
+                        Console.WriteLine("Erro de negocio: " + e.Message);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Erro inesperado: " + e.Message);
+                    }
                 }
                 else if (opcao == 4)
                 {
-
+                    try
+                    {
+                        Tela.MostrarPedido();
+                    }
+                    catch (ModelException e)
+                    {
+                        Console.WriteLine("Erro de negocio: " + e.Message);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Erro inesperado: " + e.Message);
+                    }
                 }
                 else if (opcao == 5)
                 {
