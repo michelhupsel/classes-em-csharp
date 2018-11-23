@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using System.Globalization;
 
 namespace curso.dominio
-{
-    class Produto
+{   //a classe produto é uma subclasse de IComparable
+    class Produto : IComparable
     {
         public int Codigo { get; set; }
         public string Descricao { get; set; }
@@ -28,6 +28,24 @@ namespace curso.dominio
                 + Descricao
                 + ", "
                 + Preco.ToString("F2", CultureInfo.InvariantCulture);
+        }
+
+        //metodo para ordenar listagem dos produtos
+        public int CompareTo(object obj)
+        {
+            //feito o casting para o tipo produto
+            Produto outro = (Produto)obj;
+            //se o resultado for zero, são iguais. Caso negativo o da esquerda é maior, caso positivo o da direita
+            int resultado = Descricao.CompareTo(outro.Descricao);
+            if(resultado != 0)
+            {
+                return resultado;
+            }
+            else
+            {
+                //caso os produtos sejam iguais, precisam ser ordenados por preco em ordem decrescente
+                return -Preco.CompareTo(outro.Preco);
+            }
         }
     }
 }

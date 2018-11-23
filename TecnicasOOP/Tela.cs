@@ -20,5 +20,13 @@ namespace curso
             Console.WriteLine("Digite uma opcao:");
         }
 
+        public static void MostrarProdutos()
+        {
+            Console.WriteLine("LISTAGEM DE PRODUTOS:");
+            for(int i = 0; i < Program.produtos.Count; i++)
+            {
+                Console.WriteLine(Program.produtos[i]);
+            }
+        }
     }
 }
